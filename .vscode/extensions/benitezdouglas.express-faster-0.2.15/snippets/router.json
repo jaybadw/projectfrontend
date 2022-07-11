@@ -1,0 +1,62 @@
+{
+  "router": {
+    "prefix": "router",
+    "body": "const router = require('express').Router();",
+    "description": "Initiazlizing router variable"
+  },
+  "router.use": {
+    "prefix": "router.use",
+    "body": "router.use($1);",
+    "description": "Insert router.use()"
+  },
+  "router.use.path": {
+    "prefix": "router.use.path",
+    "body": "router.use('{1:path}', ${2:router});",
+    "description": "Insert router.use() with path"
+  },
+  "router.get": {
+    "prefix": "router.get",
+    "body": [
+      "router.get('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP GET request."
+  },
+  "router.post": {
+    "prefix": "router.post",
+    "body": [
+      "router.post('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP POST request."
+  },
+  "router.put": {
+    "prefix": "router.put",
+    "body": [
+      "router.put('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP PUT request."
+  },
+  "router.delete": {
+    "prefix": "router.delete",
+    "body": [
+      "router.delete('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "To route to a specified path with a callback"
+  },
+  "router.patch": {
+    "prefix": "router.patch",
+    "body": [
+      "router.patch('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP PATCH request."
+  }
+}

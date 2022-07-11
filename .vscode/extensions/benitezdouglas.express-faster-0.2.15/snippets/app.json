@@ -1,0 +1,111 @@
+{
+  "app": {
+    "prefix": "app",
+    "body": "const app = express();",
+    "description": "Initiazlizing app variable"
+  },
+  "app.use": {
+    "prefix": "app.use",
+    "body": "app.use('$1');",
+    "description": "Insert app.use"
+  },
+  "app.use.json": {
+    "prefix": "app.json",
+    "body": "app.use(express.json());",
+    "description": "Insert express.json to app (app.use)"
+  },
+  "app.get": {
+    "prefix": "app.get",
+    "body": [
+      "app.get('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP GET request."
+  },
+  "app.post": {
+    "prefix": "app.post",
+    "body": [
+      "app.post('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP POST request."
+  },
+  "app.put": {
+    "prefix": "app.put",
+    "body": [
+      "app.put('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP PUT request."
+  },
+  "app.delete": {
+    "prefix": "app.delete",
+    "body": [
+      "app.delete('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "To route to a specified path with a callback"
+  },
+  "app.patch": {
+    "prefix": "app.patch",
+    "body": [
+      "app.patch('${1:path}', (req, res) => {",
+      "return \t$2",
+      "});"
+    ],
+    "description": "Routes HTTP PATCH request."
+  },
+  "app.route": {
+    "prefix": "app.route",
+    "body": [
+      "app.route('/${1:path}')",
+        ".all(function (req, res, next) {",
+        "  // runs for all HTTP verbs first",
+        "  // think of it as route specific middleware!",
+        "})",
+        ".get(function (req, res, next) {",
+        "  res.json({})",
+        "})",
+        ".post(function (req, res, next) {",
+        "  // maybe add a new event...",
+        "});"
+    ],
+    "description": "app.route"
+  }, 
+  "app.listen": {
+    "prefix": "listen",
+    "body": " app.listen(${1:port});",
+    "description": "Starts a UNIX socket and listens for connections on the given path. This method is identical to Node’s http.Server.listen()"
+  },
+  "app.listen template": {
+    "prefix": "app.listen",
+    "body": [
+      "app.listen(${1:port}, () => {",
+      "\tconsole.log(`Server started on ${2:port}`);",
+      "});"
+    ],
+    "description": "Starts a UNIX socket and listens for connections on the given path. This method is identical to Node’s http.Server.listen()"
+  },
+  "app template": {
+    "prefix": "app.template",
+    "body": [
+      "const express = require('express');",
+      "const app = express();",
+      "",
+      "app.get('${1:path}', (req, res) => {",
+      "return \t${2:body}",
+      "});",
+      "",
+      "app.listen(process.env.PORT || ${3:port}, () => {",
+      "\tconsole.log(`Server started on ${3:port}`);",
+      "});",
+      "",
+      "//npm start, open your browser and run localhost:${3:port}"
+    ],
+    "description": "Create a express app template"
+  }
+}

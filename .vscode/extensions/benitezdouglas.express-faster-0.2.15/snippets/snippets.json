@@ -1,0 +1,66 @@
+{
+  "require a module": {
+    "prefix": "require",
+    "body": "const $1 = require('$2');",
+    "description": "Require package from node_modules/ or project"
+  },
+  "require express module": {
+    "prefix": "express",
+    "body": "const express = require('express');",
+    "description": "Require Expess package from node_modules/"
+  },
+  "import express module": {
+    "prefix": "iexpress",
+    "body": "import express from 'express';",
+    "description": "Import Expess package from node_modules/"
+  },
+  "require Router() from express": {
+    "prefix": "router",
+    "body": "const router = require('express').Router();",
+    "description": "Require Router() from express package"
+  },
+  "require routes index": {
+    "prefix": "routes",
+    "body": "const routes = require('./routes');",
+    "description": "Require routes index from routes directory"
+  },
+  "require mongoose": {
+    "prefix": "mongoose",
+    "body": "const mongoose = require('mongoose');",
+    "description": "Require mongoose from node_modules/"
+  },
+  "require mongoose connection": {
+    "prefix": "mongoose.conn",
+    "body": [
+      "mongoose.connect(",
+        "'mongodb+srv://${1:username}:${2:password}@cluster0-erizp.mongodb.net/${3:database}?retryWrites=true&w=majority'",
+        ", {",
+        "  useNewUrlParser: true,",
+        "  useCreateIndex: true,",
+        "  useUnifiedTopology: true",
+      "});"
+    ],
+    "description": "Require mongoose from node_modules/"
+  },
+  "export controller": {
+    "prefix": "controller",
+    "body": [
+      "module.exports = {",
+      "  index (req, res) {",
+      "    ${1:body}",
+      "  }",
+      "}"
+    ],
+    "description": "Export Controller"
+  },
+  "export router": {
+    "prefix": "export.router",
+    "body": "module.exports = router",
+    "description": "Export Router"
+  },
+  "export model": {
+    "prefix": "export.model",
+    "body": "module.exports = model('${$1:model}', ${$2:model}",
+    "description": "Export Model"
+  }
+}
